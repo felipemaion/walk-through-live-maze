@@ -69,5 +69,5 @@ After finding the solution, you can run the PATH, so it will display at the bott
 You can click SAVE to save the file.
 
 ### TODO:
-- Know issue with FIND PATH after using NEXT and PREVIOUS.
+- Know issue with FIND PATH after using NEXT and PREVIOUS (as shown on video).
 - Refactor and improve code.
