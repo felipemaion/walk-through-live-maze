@@ -53,7 +53,7 @@ Example of a hypothetical answer with 10 moves: R R D R D L U D R R
 
 # THIS SOLUTION
 ## How to use it
-[![Watch the video](screenshot.png)](sample.mov)
+[![Watch the video](screenshot.png)](sample.m4v)
 Running the index.html file, click RUN to make the initial setup.
 You can move each evolution step (PREVIOUS and NEXT).
 
@@ -67,3 +67,7 @@ Also you can find the solution clicking on FIND.
 
 After finding the solution, you can run the PATH, so it will display at the bottom of the page (text area) the moves.
 You can click SAVE to save the file.
+
+### TODO:
+- Know issue with FIND PATH after using NEXT and PREVIOUS.
+- Refactor and improve code.
