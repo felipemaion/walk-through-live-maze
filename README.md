@@ -53,7 +53,7 @@ Example of a hypothetical answer with 10 moves: R R D R D L U D R R
 
 # THIS SOLUTION
 ## How to use it
-[![Watch the video](screenshot.png)](sample.m4v)
+[![Watch the video](screenshot.png)](https://youtu.be/hGsn5Vas370)
 Running the index.html file, click RUN to make the initial setup.
 You can move each evolution step (PREVIOUS and NEXT).
 
