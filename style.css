@@ -1,0 +1,154 @@
+html {
+	background-color: #7D2663;
+	font-family: sans-serif;
+}
+
+h1 {
+	margin: 0;
+	font-size: 20vmin;
+	letter-spacing: -0.2rem;
+	position: absolute;
+	top: 0;
+	z-index: -1;
+}
+
+button {
+    background-color: #4CAF50; /* Green */
+    border: none;
+    border-radius: 100%;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 36px;
+    margin: 5px;
+  }
+
+#txtPath {
+    width: 100%;
+    font-size: 28px;
+}
+
+p {
+	margin: 0;
+}
+.container {
+    width: 100%;
+    margin: 10px;
+    padding: auto;
+}
+.controls {
+	padding: 4vw;
+	width: 75%;
+	margin: 5vw auto;
+	background-color: rgba(255,255,255,0.7);
+	border: 5px solid black;
+	opacity: 0.3;
+	transition: 1s all;
+}
+
+.controls:hover, .controls:focus {
+  opacity: 1;
+}
+
+.controls label, .controls p, .controls input {
+	font-size: 3vw;
+}
+
+.controls div {
+  padding-bottom: 1rem;
+}
+:root {
+    --live-cell: #F0F0F0;
+    --background-color: #BBBBBB;
+    --dead-cell: #0da14b;
+	--next-dead: #0da1ff;
+    --background-circle: white;
+    --start-finish: #EEEE00;
+	--normal-cell-border: 3px solid black;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: white;
+    min-height: 100vh;
+    display: grid;
+    align-items: center;
+}
+
+section {
+    /* width: 880px; */
+    min-height: 660px;
+    background: var(--background-color);
+    margin: 0 auto;
+    padding: 2% 2% 3.5%;
+    border: solid black 3px;
+    border-radius: 2%;
+    display: grid;
+    box-sizing: border-box;
+	
+    position: relative;
+}
+
+cell {
+    background: var(--live-cell);
+    display: inline-block;
+    border: solid black 2px;
+    border-radius: 25%;
+    margin: 1px;
+    display: grid;
+    align-items: center;
+  }
+
+  .circle {
+    width: 72%;
+    height: 70%;
+    background: #dc04f9;
+    border: solid black 2px;
+    border-radius: 50%;
+    display: inline-block;
+    margin: auto;
+    background-image: url(https://s3.amazonaws.com/appforest_uf/f1678711967961x764142293192431500/channels4_profile.jpg);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.hidden {
+    visibility: hidden;
+}
+.circle-hidden{
+	visibility: hidden;
+	width: 72%;
+    height: 70%;
+    background: #00ae55;
+    border: solid black 2px;
+    border-radius: 50%;
+    display: inline-block;
+    margin: auto;
+    background-image: url(https://s3.amazonaws.com/appforest_uf/f1678711967961x764142293192431500/channels4_profile.jpg);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+
+}
+.start, .finish {
+    background: var(--start-finish);
+}
+
+.dead {
+    background: var(--dead-cell);
+}
+.next-dead {
+	background: var(--next-dead);
+	
+}
+.dead.next-dead {
+	background: var(--next-dead);
+	border-color: var(--dead-cell);
+}
