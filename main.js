@@ -8,6 +8,7 @@ const btnFind = document.querySelector('#btnFind');
 const btnPath = document.querySelector('#btnPath');
 const txtPath = document.querySelector('#txtPath');
 const btnSave = document.querySelector('#btnSave');
+const time = document.querySelector('#time');
 const section = document.querySelector('section');
 
 
@@ -77,6 +78,13 @@ const clearMatrix = function () {
   }
 }
 
+
+function sleep(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+
+
 function saveStaticDataToFile() {
   let info = txtPath.textContent.replaceAll(",", " ")
   var blob = new Blob([info],
@@ -93,9 +101,14 @@ if (window.Worker) {
   }
 
   btnClear.onclick = function () {
-    clearMatrix();
+    
     layer = "start";
+    find=false;
+    foundSolution = false;
+    txtPath.textContent = ""
+    time.value = 500;
     myWorker.postMessage("clear");
+    clearMatrix();
   }
   btnNext.onclick = function () {
     myWorker.postMessage("next");
@@ -139,7 +152,10 @@ if (window.Worker) {
 
     console.log('Message received from worker');
     if (find == true) {
-      setInterval(myWorker.postMessage("next"), 1000);
+      // alert(parseInt(time.value) + " ms");
+      sleep(parseInt(time.value)).then(() => {  
+        myWorker.postMessage("next");
+      });
     }
   }
 

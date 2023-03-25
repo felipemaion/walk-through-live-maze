@@ -249,12 +249,11 @@ let browserCounter = 0;
 const next = function () {
   let previousLayer;
   let workerResult;
-  let layer;
   if (browserCounter > 0) {
     previousLayer = allLayers[browserCounter - 1]
   }
   // console.log(previousLayer);
-  if (browserCounter < allLayers.length) {
+  if (browserCounter < allLayers.length -1) {
     workerResult = allLayers[browserCounter + 1];
     browserCounter++;
   } else {
@@ -282,11 +281,12 @@ onmessage = function (e) {
       workerResult = next();
       // browserCounter++;
     } else {
+      // found solution
       workerResult = allLayers[allLayers.length - 1];
     }
     // after:
     if (foundSolution) {
-      backPath();
+      backPath(); // generate the back path
     }
   } else if (e.data == "previous") {
     if (browserCounter > 0) {
