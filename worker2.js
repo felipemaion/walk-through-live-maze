@@ -265,65 +265,60 @@ const next = function () {
 }
 
 
+let workerResult;
+const commands= {
+  
+  start() {
+    // console.log("start");
+    browserCounter = 0;
+    workerResult = setupLayers();
+    browserCounter++;
+  },
+
+  next() {
+    // console.log("next");
+    if (!foundSolution) {
+      workerResult = next();
+      // browserCounter++;
+    } else {
+      // found solution
+      workerResult = allLayers[allLayers.length - 1];
+    }
+    // after:
+    if (foundSolution) {
+      backPath(); // generate the back path
+    }
+  },
+
+  previous(){
+    // console.log("previous");
+    if (browserCounter > 0) {
+      browserCounter--;
+      workerResult = allLayers[browserCounter];
+    } else {
+      workerResult = allLayers[0];
+      browserCounter = 0;
+    }
+  },
+  path(){
+    // console.log("path");
+    moves = writeMoves();
+    workerResult = [allLayers[allLayers.length - 1], moves];
+  },
+  clear(){
+    // console.log("clear");
+    allLayers = [];
+    revertedAllLayers = [];
+    browserCounter = 0;
+    winnerPath.nodes = [];
+    workerResult = setupLayers();
+    browserCounter++;
+  },
+  }
+
 
 onmessage = function (e) {
   console.log('Worker: Message received from main script');
-  // console.log(e.data);
-
-  let workerResult;
-
-
-  
-  const commands= {
-      start() {
-        console.log("start");
-        browserCounter = 0;
-        workerResult = setupLayers();
-        browserCounter++;
-      },
-  
-      next() {
-        console.log("next");
-        if (!foundSolution) {
-          workerResult = next();
-          // browserCounter++;
-        } else {
-          // found solution
-          workerResult = allLayers[allLayers.length - 1];
-        }
-        // after:
-        if (foundSolution) {
-          backPath(); // generate the back path
-        }
-      },
-  
-      previous(){
-        console.log("previous");
-        if (browserCounter > 0) {
-          browserCounter--;
-          workerResult = allLayers[browserCounter];
-        } else {
-          workerResult = allLayers[0];
-          browserCounter = 0;
-        }
-      },
-      path(){
-        console.log("path");
-        moves = writeMoves();
-        workerResult = [allLayers[allLayers.length - 1], moves];
-      },
-      clear(){
-        console.log("clear");
-        allLayers = [];
-        revertedAllLayers = [];
-        browserCounter = 0;
-        winnerPath.nodes = [];
-        workerResult = setupLayers();
-        browserCounter++;
-      },
-      }
-
-      
   const command = e.data;
   const menuCommand = commands[command];
   if (menuCommand) {
