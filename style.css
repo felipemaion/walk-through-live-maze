@@ -145,10 +145,10 @@ cell {
     background: var(--dead-cell);
 }
 .next-dead {
-	background: var(--next-dead);
+	/* background: var(--next-dead); */
 	
 }
 .dead.next-dead {
-	background: var(--next-dead);
-	border-color: var(--dead-cell);
+	/* background: var(--next-dead); */
+	/* border-color: var(--dead-cell); */
 }

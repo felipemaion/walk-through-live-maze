@@ -10,6 +10,7 @@ const txtPath = document.querySelector('#txtPath');
 const btnSave = document.querySelector('#btnSave');
 const time = document.querySelector('#time');
 const section = document.querySelector('section');
+const step = document.querySelector('#step');
 
 
 let matrix = initialMatrix;
@@ -63,6 +64,7 @@ const drawMatrix = function (layer) {
       // console.log("i: "+ i + " j: "+j + " has node") : console.log("i: "+ i + " j: "+j + " doesn't have node");
     }
   }
+  step.textContent = layer.layerId;
 }
 
 const clearMatrix = function () {
